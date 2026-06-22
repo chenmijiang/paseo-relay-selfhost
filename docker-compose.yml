@@ -1,0 +1,18 @@
+# Runs the relay on plain ws://. Default port 8787 — override with RELAY_PORT
+# (in .env or the shell). Lock it down with a firewall and/or
+# RELAY_ALLOWED_SERVER_IDS. TLS is optional; add it yourself.
+#
+#   docker compose up -d --build
+
+services:
+  relay:
+    build: .
+    image: paseo-relay
+    restart: unless-stopped
+    environment:
+      # RELAY_HOST isn't set here: the image pins it to 0.0.0.0, which the
+      # container must use for the published port to reach it.
+      RELAY_ALLOWED_SERVER_IDS: ${RELAY_ALLOWED_SERVER_IDS:-}
+    ports:
+      # published host port (override via RELAY_PORT) -> fixed container port 8787
+      - "${RELAY_PORT:-8787}:8787"
