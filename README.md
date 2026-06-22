@@ -58,6 +58,9 @@ To persist instead of env vars, set `daemon.relay` in `$PASEO_HOME/config.json`:
 ```
 
 - `enabled` / `endpoint` mirror `PASEO_RELAY_ENABLED` / `PASEO_RELAY_ENDPOINT`.
+- `publicEndpoint` / `publicUseTls` mirror `PASEO_RELAY_PUBLIC_ENDPOINT` /
+  `PASEO_RELAY_PUBLIC_USE_TLS` — the address and TLS flag the app gets from the
+  pairing QR. Default to `endpoint` / `useTls`.
 - Only if you front the relay with TLS, add `"useTls": true` (the persisted form
   of `PASEO_RELAY_USE_TLS=true`) and point `endpoint` at the TLS port.
 

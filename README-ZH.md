@@ -58,6 +58,7 @@ paseo daemon start
 ```
 
 - `enabled` / `endpoint` 对应 `PASEO_RELAY_ENABLED` / `PASEO_RELAY_ENDPOINT`。
+- `publicEndpoint` / `publicUseTls` 对应 `PASEO_RELAY_PUBLIC_ENDPOINT` / `PASEO_RELAY_PUBLIC_USE_TLS`，即 App 从配对二维码里拿到的地址和 TLS 开关。默认跟随 `endpoint` / `useTls`。
 - 仅当你在中继前面加了 TLS，才加上 `"useTls": true`(即 `PASEO_RELAY_USE_TLS=true` 的持久化形式)，并把 `endpoint` 指向 TLS 端口。
 
 ## 配置
